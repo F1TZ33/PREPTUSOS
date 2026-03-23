@@ -1,16 +1,17 @@
-Axentra Premium Website Pack
+Preptus Site 1
 
-Updated features:
-- Conversion-first home page copy
-- Dedicated Start Here / conversion page
-- Premium packages page copy
-- Shared Axentra colour theme
-- Questionnaire scoring support
-- Separate scoring and pricing pages
+Customer-facing site build for Preptus Operating System™.
 
-How to use:
-1. Unzip the pack.
-2. Open index.html in your browser.
-3. Start testing flow from Home -> Start Here -> Questionnaire.
-4. Edit package names, multipliers, and scoring ranges as the offer evolves.
-5. Upload to any static host (GitHub Pages, Netlify, cPanel, etc.).
+Included pages:
+- index.html (home)
+- origin.html
+- scoring.html
+- packages.html
+- diagnostic.html
+- acquisition.html
+
+Notes:
+- Numeric scores are hidden from visitors.
+- Diagnostic returns a recommended engagement level only.
+- PRE-Acquisition questionnaire returns an indicative fee range only.
+- Contact forms are placeholders ready to be wired to email or CRM.
