@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Inventory</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <h1>Vehicle Inventory</h1>
+        <p class="subtitle">Track what is in your caravan, camper trailer, and any other vehicle.</p>
+      </div>
+      <div class="topbar-actions">
+        <button id="exportBtn" class="secondary">Export JSON</button>
+        <label for="importInput" class="secondary fake-button">Import JSON</label>
+        <input id="importInput" type="file" accept=".json" hidden />
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel">
+        <div class="section-header">
+          <h2>Vehicles</h2>
+          <button id="addVehicleBtn">+ Add vehicle</button>
+        </div>
+        <div id="vehiclesList" class="list"></div>
+      </aside>
+
+      <section class="panel">
+        <div class="section-header">
+          <div>
+            <h2 id="selectedVehicleTitle">Select a vehicle</h2>
+            <p id="selectedVehicleMeta" class="muted">Add a caravan, camper trailer, car, or boat and start building locations.</p>
+          </div>
+          <button id="addLocationBtn" disabled>+ Add location</button>
+        </div>
+        <div id="locationsArea" class="locations-area empty-state">
+          Select or add a vehicle to begin.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="nameDialog">
+    <form method="dialog" id="nameForm">
+      <h3 id="dialogTitle">Add item</h3>
+      <p class="muted" id="dialogPrompt">Enter a name</p>
+      <input id="nameInput" type="text" maxlength="120" autocomplete="off" />
+      <div class="dialog-actions">
+        <button value="cancel" class="secondary">Cancel</button>
+        <button id="saveNameBtn" value="default">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="locationTemplate">
+    <div class="location-card">
+      <div class="location-top">
+        <div>
+          <h3 class="location-name"></h3>
+          <p class="muted item-count"></p>
+        </div>
+        <div class="location-actions">
+          <button class="rename-location secondary">Rename</button>
+          <button class="delete-location danger">Delete</button>
+        </div>
+      </div>
+
+      <div class="add-item-row">
+        <input class="item-input" type="text" placeholder="Add item to this location" maxlength="120" />
+        <button class="add-item-btn">Add item</button>
+      </div>
+
+      <div class="items-list"></div>
+    </div>
+  </template>
+
+  <template id="itemTemplate">
+    <div class="item-row">
+      <span class="item-name"></span>
+      <div class="item-actions">
+        <button class="rename-item secondary">Rename</button>
+        <button class="delete-item danger">Delete</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

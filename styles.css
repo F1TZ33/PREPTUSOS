@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f3f5f7;
+  --panel: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --line: #d9e0e7;
+  --primary: #1f6feb;
+  --primary-hover: #1558ba;
+  --danger: #c73b3b;
+  --danger-hover: #a72f2f;
+  --shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  --radius: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 6px;
+}
+
+.subtitle,
+.muted {
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vehicle-row {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+}
+
+.vehicle-row.active {
+  border-color: var(--primary);
+  background: #eef5ff;
+}
+
+.vehicle-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.vehicle-name {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vehicle-meta {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.vehicle-actions,
+.location-actions,
+.item-actions,
+.topbar-actions,
+.dialog-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.locations-area {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.location-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  background: #fff;
+}
+
+.location-top,
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.add-item-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-row {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fafbfc;
+}
+
+.item-name {
+  word-break: break-word;
+}
+
+button,
+.fake-button {
+  border: none;
+  background: var(--primary);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover,
+.fake-button:hover {
+  background: var(--primary-hover);
+}
+
+button.secondary,
+.fake-button.secondary {
+  background: #e8edf3;
+  color: var(--text);
+}
+
+button.secondary:hover,
+.fake-button.secondary:hover {
+  background: #dce4ec;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+button.danger:hover {
+  background: var(--danger-hover);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.empty-state {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  background: #fafbfc;
+  text-align: center;
+  padding: 24px;
+}
+
+dialog {
+  border: none;
+  border-radius: 16px;
+  padding: 0;
+  width: min(92vw, 420px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+dialog::backdrop {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+#nameForm {
+  padding: 20px;
+}
+
+#nameInput {
+  margin: 14px 0 18px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .section-header,
+  .vehicle-top,
+  .location-top,
+  .item-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-item-row {
+    grid-template-columns: 1fr;
+  }
+}
